@@ -6,8 +6,9 @@ namespace DataCardio.Test
     public class TestCardio
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestCardio1()
         {
+            
         }
     }
 }
