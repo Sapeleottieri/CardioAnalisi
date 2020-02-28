@@ -51,9 +51,34 @@ namespace DataCardio
             {
                 calorie = ((anni * 0.074) + (peso * 0.126) + (freq * 0.4472) - 20.4022) * tempo / 4.184;
             }
-            calorie = Math.Round(calorie, 2);
+            calorie = Math.Round(calorie,2);
             return calorie;
         }
+
+        public static double CalorieCorsaCamminata(double km , double kg ,string ris)
+        {
+            if (ris == "Corsa")
+            {
+                double calorieCorsa = 0.9 * km * kg;
+                return calorieCorsa;
+            }
+            else if ( ris == "Camminata")
+            { 
+                double calorieCamminata = 0.5 * km * kg;
+                return calorieCamminata;
+            }
+            else
+            {
+                return double.NaN;
+            }
+        }
+
+        public static double MediaBattiti(int battitimensili, int giorni)
+        {
+            double media = battitimensili / giorni;
+            return media;
+        }
+
 
     }
 }

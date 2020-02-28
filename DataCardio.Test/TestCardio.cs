@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+Ôªøusing Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DataCardio.Test
 {
@@ -8,9 +8,9 @@ namespace DataCardio.Test
         [TestMethod]
         public void TestCardio1()
         {
-            int et‡ = 26;
+            int et√† = 26;
             int asp = 194;
-            int risp = DataCardio.CalcoloBattiti(et‡);
+            int risp = DataCardio.CalcoloBattiti(et√†);
             Assert.AreEqual(asp, risp);
         }
         [TestMethod]
@@ -33,7 +33,7 @@ namespace DataCardio.Test
         }
         [DataTestMethod]
         [DataRow("uomo",18,80,30,165,491.53)]
-        [DataRow("donna", 18, 70, 30, 165, 455.57)]
+        [DataRow("donna", 18, 70, 30, 165, 455.58)]
 
         public void TestCalorieBruciate(string sesso, double anni, double peso, double tempo, double freq,double asp)
         {
@@ -44,6 +44,21 @@ namespace DataCardio.Test
             //double tempo = 30;
             //double asp = 491.53;
             double risp =DataCardio.CalorieBruciate(sesso, anni, peso, tempo, freq);
+            Assert.AreEqual(asp, risp);
+        }
+        [DataTestMethod]
+        [DataRow(20.0,70.0,"Corsa",1260.0)]
+        [DataRow(20.0, 70.0, "Camminata", 700.0)]
+        public void TestCalorieCorsaCamminata(double km , double kg , string ris, double asp)
+        {
+            double risp = DataCardio.CalorieCorsaCamminata(km, kg, ris);
+            Assert.AreEqual(asp, risp);
+        }
+        [DataTestMethod]
+        [DataRow(3456000,30,115200)]
+        public void Testbattitigiornalieri(int battitimensili,int giorni,double asp)
+        {
+            double risp = DataCardio.MediaBattiti(battitimensili, giorni);
             Assert.AreEqual(asp, risp);
         }
     }
