@@ -79,6 +79,15 @@ namespace DataCardio
             return media;
         }
 
+        public static double BattitiaRiposo(int secondi, int battiti)
+        {
+            return 60 * battiti / secondi;
+        }
+
+        //public static double VariabilitaBattito()
+        //{
+            
+        //}
 
     }
 }

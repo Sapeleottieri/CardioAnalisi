@@ -61,5 +61,13 @@ namespace DataCardio.Test
             double risp = DataCardio.MediaBattiti(battitimensili, giorni);
             Assert.AreEqual(asp, risp);
         }
+        [DataTestMethod]
+        [DataRow(10,20,120)]
+        public void TestBattitiRiposo(int secondi, int battiti, double asp)
+        {
+            double risp = DataCardio.BattitiaRiposo(secondi, battiti);
+            Assert.AreEqual(asp, risp);
+        }
+
     }
 }
