@@ -84,10 +84,35 @@ namespace DataCardio
             return 60 * battiti / secondi;
         }
 
-        //public static double VariabilitaBattito()
-        //{
-            
-        //}
+        public static int VariabilitaBattito(int[] giorno)
+        {
+            int max = int.MinValue;
+            int min = int.MaxValue;
+            for (int i = 0; i < giorno.Length; i++)
+            {
+                if (giorno[i] > max)
+                    max = giorno[i];
+                if (giorno[i] < min)
+                    min = giorno[i];
+            }
+            int diff = max - min;
+            return diff;
+        }
+
+        public static string Febbre(int battiti, double temperaturamedia)
+        {
+            string febbre ="";
+            if (battiti >= 60 && battiti <= 90)
+                febbre = "Non hai la febbre!";
+            else if (battiti > 90)
+            {
+                febbre = "Hai la febbre! Riposati!";
+                double diff = battiti - 90;
+                temperaturamedia += (diff / 10);
+                febbre += $" La tua temperatura corporea è di {temperaturamedia}°";
+            }
+            return febbre;
+        }
 
     }
 }
